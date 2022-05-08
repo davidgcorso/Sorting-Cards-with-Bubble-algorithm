@@ -1,15 +1,15 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 body {
-    background-color: rgb(4, 102, 4);
-    color: white;
+    background-color: rgb(108, 42, 42);
+    color: rgb(12, 11, 11);
   }
   .card {
     background-color: white;
-    width: 100px;
-    height: 150px;
+    width: 150px;
+    height: 250px;
     border-radius: 15px;
     position: relative;
-    margin: 5px;
+    margin: 10px;
     box-shadow: 5px 0 5px -2px rgb(12, 12, 12);
   }
   .card-symbol {
@@ -19,19 +19,17 @@ body {
   .card-symbol.top {
       top: 5px;
       left: 10px;
-      font-size: 30px;
+      font-size: 50px;
     }
-  .card-symbol.bot {
-      transform: rotate(180deg);
+  .card-symbol.bottom {
       bottom: 5px;
       right: 10px;
-      font-size: 30px;
+      font-size: 50px;
     }
   .card-value {
       font-size: 40px;
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 40%;
       left: 40%;
     }
   .card.spades,
@@ -42,7 +40,7 @@ body {
   .card.diamonds {
     color: red;
   }
-  #draw{
+  #random{
       margin-left: 15px;
       margin-right: 15px;
       
@@ -50,6 +48,7 @@ body {
 
   h1{
       color: white;
+      text-align: center;
   }
   #cardContainer {
       
@@ -58,22 +57,24 @@ body {
       flex-wrap: wrap;
       justify-content: center;
   }
-  .inputs{
+  .inputButtons{
       display: flex;
       justify-content: center;
       margin-bottom: 15px;
   }
-  #input{
-    margin-left: 15px;
-  }
+  
   label{
       font-size: 25px;
   }
   button{
       border-radius: 5px;
-      background-color: black;
+      background-color: white;
+      color: black;
+  }
+  button:hover{
+      background-color: gray;
       color: white;
-      box-shadow: 5px;
+    
   }
   #cartaContainer{
     display: flex;

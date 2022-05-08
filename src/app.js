@@ -8,8 +8,8 @@ let cartas = () => {
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
   for (let s of symbols) {
-    for (let r of numbers) {
-      cards.push({ r, s });
+    for (let n of numbers) {
+      cards.push({ n, s });
     }
   }
   return cards;
@@ -18,7 +18,7 @@ let cartaContainer = document.getElementById("cartaContainer");
 let cardContainer = document.getElementById("cardContainer");
 let randomCard = cards => {
   const random = Math.floor(Math.random() * 51);
-  cardNumber = cards[random].r;
+  cardNumber = cards[random].n;
   cardSymbol = cards[random].s;
   let symbol;
   if (cardSymbol === "&spades;") {
@@ -48,7 +48,7 @@ let randomCard = cards => {
     '<span class="card-value">' +
     cardNumber +
     "</span>" +
-    '<span class="card-symbol bot">' +
+    '<span class="card-symbol bottom">' +
     cardSymbol +
     "</span>";
   cardContainer.appendChild(card);
@@ -57,12 +57,11 @@ let randomCard = cards => {
 };
 let cards = cartas();
 
-// randomCard(cards);
 let input = document.getElementById("input");
-let draw = document.getElementById("draw");
-let sort = document.getElementById("sort");
+let random = document.getElementById("random");
+let sorting = document.getElementById("sorting");
 
-draw.addEventListener("click", () => {
+random.addEventListener("click", () => {
   cardArray = [];
   cardContainer.innerHTML = "";
   for (let i = 0; i < input.value; i++) {
@@ -71,21 +70,21 @@ draw.addEventListener("click", () => {
   }
 });
 
-const bubbleSort = arr => {
-  let wall = arr.length - 1; //we start the wall at the end of the array
+const bubbleSorting = arr => {
+  let limit = arr.length - 1; 
 
-  while (wall >= 0) {
+  while (limit >= 0) {
     let index = 0;
 
-    while (index < wall) {
+    while (index < limit) {
       let iter = document.createElement("h1");
 
       iter.innerHTML = counter;
       counter++;
       cartaContainer.appendChild(iter);
       displayCard(arr);
-      //compare the adjacent positions, if the right one is bigger, we have to swap
-      if (arr[index].r > arr[index + 1].r) {
+      
+      if (arr[index].n > arr[index + 1].n) {
         let aux = arr[index];
         arr[index] = arr[index + 1];
         arr[index + 1] = aux;
@@ -94,21 +93,21 @@ const bubbleSort = arr => {
       index++;
     }
 
-    wall--; //decrease the wall for optimization
+    limit--; 
   }
   return arr;
 };
 let counter;
-sort.addEventListener("click", () => {
+sorting.addEventListener("click", () => {
   cartaContainer.innerHTML = "";
   counter = 0;
-  let sorted = bubbleSort(cardArray);
+  let sorted = bubbleSorting(cardArray);
   console.log(sorted);
-  // displayCard(sorted);
+ 
 });
 const displayCard = array => {
   for (let i = 0; i < array.length; i++) {
-    let valor = array[i].r;
+    let valor = array[i].n;
     let pinta = array[i].s;
     let thePinta;
     if (pinta === "&spades;") {
@@ -139,7 +138,7 @@ const displayCard = array => {
       '<span class="card-value">' +
       valor +
       "</span>" +
-      '<span class="card-symbol bot">' +
+      '<span class="card-symbol bottom">' +
       pinta +
       "</span>";
     cartaContainer.appendChild(carta);
