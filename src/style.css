@@ -39,7 +39,7 @@ body {
   }
   .card.hearts,
   .card.diamonds {
-    color: red;
+    color: rgb(195, 0, 0);
   }
   #random{
       margin-left: 15px;
